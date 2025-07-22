@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fortune Cookie</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8e1;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #8b4513;
+    }
+
+    #cookie {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    #cookie:hover {
+      transform: scale(1.05);
+    }
+
+    #fortune {
+      margin-top: 30px;
+      font-size: 1.5em;
+      color: #444;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+    #reset-btn {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #f5c26b;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #reset-btn:hover {
+      background-color: #f7a733;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Click the Fortune Cookie 🍪</h1>
+  <img id="cookie" src="https://imgur.com/HpRG9Vp" alt="Fortune Cookie">
+  <div id="fortune"></div>
+  <button id="reset-btn">Try Again</button>
+
+  <script>
+    const fortunes = [
+      "The only limits we have for tomorrow are the doubts we have today.",
+      "Courage is not simply one of the virtues, but the form of every virtue at the testing point.",
+      "꽝.",
+      "You don't need strength to let go of something. What you really need is understanding",
+      "Allow yourself to feel, don't ignore and hide your feelings, try to hear and accept them. ",
+      "The same good you see in others is within you too. ",
+      "Discover the power within yourself ",
+      "Each time you break your own boundaries to ensure that someone else likes you, you like yourself a little less. .",
+      "A dream you have will soon come true.",
+      "Walk with a good heart and you will run with success .",
+      "Life is about making some things happen, not waiting for something to happen.",
+      "Remember to make time for yourself and take breaks  .",
+      "Please be always reminded that you deserve love, care and support .",
+      "Fear is interest paid on a debt that you have owe   .",
+      "There is nothing lost or wasted in this life",
+      "When you speak honestly and openly, others truly listen to you "
+    ];
+
+    const cookie = document.getElementById('cookie');
+    const fortuneText = document.getElementById('fortune');
+    const resetBtn = document.getElementById('reset-btn');
+
+    cookie.addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * fortunes.length);
+      const fortune = fortunes[randomIndex];
+      fortuneText.textContent = `"${fortune}"`;
+      fortuneText.classList.add('visible');
+      resetBtn.style.display = 'inline-block';
+      cookie.style.pointerEvents = 'none';
+    });
+
+    resetBtn.addEventListener('click', () => {
+      fortuneText.textContent = '';
+      fortuneText.classList.remove('visible');
+      resetBtn.style.display = 'none';
+      cookie.style.pointerEvents = 'auto';
+    });
+  </script>
+
+</body>
+</html>
