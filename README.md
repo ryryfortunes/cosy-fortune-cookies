@@ -59,7 +59,7 @@
 <body>
 
   <h1>Click the Fortune Cookie 🍪</h1>
-  <img id="cookie" src="https://i.imgur.com/2XhZbYp.png" alt="Fortune Cookie">
+  <img id="cookie" src="https://icon2.cleanpng.com/20180615/ax/aa7phlr6h.webp" alt="Fortune Cookie">
   <div id="fortune"></div>
   <button id="reset-btn">Try Again</button>
 
